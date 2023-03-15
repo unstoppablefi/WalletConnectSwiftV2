@@ -42,7 +42,7 @@ actor EchoRegisterService {
         logger.debug("Successfully registered at Echo Server")
     }
 
-#if DEBUG
+#if DEBUG || targetEnvironment(simulator)
     public func register(deviceToken: String) async throws {
         let response = try await httpClient.request(
             EchoResponse.self,

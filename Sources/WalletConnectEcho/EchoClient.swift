@@ -12,7 +12,7 @@ public class EchoClient {
         try await registerService.register(deviceToken: deviceToken)
     }
 
-#if DEBUG
+#if DEBUG || targetEnvironment(simulator)
     public func register(deviceToken: String) async throws {
         try await registerService.register(deviceToken: deviceToken)
     }
