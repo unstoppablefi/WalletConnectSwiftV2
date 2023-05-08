@@ -42,7 +42,7 @@ actor EchoRegisterService {
         logger.debug("Successfully registered at Echo Server")
     }
 
-#if DEBUG
+#if DEBUG || targetEnvironment(simulator)
     public func register(deviceToken: String) async throws {
         let echoAuthToken = try echoAuthenticator.createAuthToken()
         let clientIdMutlibase = try DIDKey(did: clientId).multibase(variant: .ED25519)
